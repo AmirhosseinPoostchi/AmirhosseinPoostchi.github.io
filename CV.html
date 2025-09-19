@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>امیرحسین پوستچی | مهندس طراحی الکترونیک و توسعه دهنده نرم افزار </title>
+
+    <!-- ✅ عنوان بهینه‌شده برای سئو -->
+    <title>امیرحسین پوستچی | مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار AVR</title>
+
+    <!-- ✅ متای توضیحات (ضروری برای سئو) -->
+    <meta name="description" content="رزومه رسمی امیرحسین پوستچی - مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار با تخصص در AVR، طراحی PCB و پیاده‌سازی سیستم‌های هوشمند. مشهد، ایران.">
+
+    <!-- ✅ کلمات کلیدی (اختیاری ولی مفید) -->
+    <meta name="keywords" content="امیرحسین پوستچی, مهندس الکترونیک, طراحی PCB, AVR, CodeVision, Proteus, Altium, رباتیک, اینترنت اشیا, رزومه, CV, مشهد">
+
+    <!-- ✅ Canonical URL برای جلوگیری از محتوای تکراری -->
+    <link rel="canonical" href="https://amirhosseinpoostchi.github.io/CV" />
+
+    <!-- ✅ Open Graph - برای اشتراک‌گذاری در شبکه‌های اجتماعی -->
+    <meta property="og:title" content="امیرحسین پوستچی | مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار">
+    <meta property="og:description" content="رزومه رسمی امیرحسین پوستچی - متخصص AVR و طراحی سیستم‌های الکترونیکی هوشمند">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://amirhosseinpoostchi.github.io/CV">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=CV+AmirHossein+Poostchi">
+    <meta property="profile:first_name" content="امیرحسین">
+    <meta property="profile:last_name" content="پوستچی">
+    <meta property="profile:username" content="amirhosseinpoostchi">
+
+    <!-- ✅ Twitter Card (اختیاری) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="امیرحسین پوستچی | مهندس طراحی الکترونیک">
+    <meta name="twitter:description" content="رزومه حرفه‌ای با تمرکز بر AVR، IoT و طراحی PCB">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630.png?text=CV+AmirHossein+Poostchi">
+
+    <!-- ✅ فونت و استایل‌ها (بدون تغییر) -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
         
@@ -110,7 +139,8 @@
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
+
+        /* ✅ تغییر H1 برای سئو: نام کامل + عنوان شغلی */
         .name {
             font-size: 3rem;
             font-weight: 800;
@@ -317,13 +347,12 @@
             list-style: none;
         }
 
-        /* ✅ اصلاح نهایی: راست‌چین صحیح + جلوگیری از افتادگی */
         .skill-list li {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             margin-bottom: 12px;
-            padding: 10px 15px 10px 25px; /* ← padding-left برای RTL */
+            padding: 10px 15px 10px 25px;
             position: relative;
             border-radius: 10px;
             background: rgba(62, 146, 204, 0.1);
@@ -332,11 +361,10 @@
             background-image: linear-gradient(to right, rgba(62, 146, 204, 0.1), rgba(62, 146, 204, 0.1)), linear-gradient(90deg, var(--secondary-blue), var(--light-blue));
             background-origin: border-box;
             background-clip: padding-box, border-box;
-
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            text-align: right; /* ← برای اطمینان بیشتر */
+            text-align: right;
         }
         
         .skill-list li:hover {
@@ -558,7 +586,6 @@
             100% { box-shadow: 0 0 30px rgba(62, 146, 204, 0.8); }
         }
         
-        /* Floating bubbles */
         .bubble {
             position: absolute;
             border-radius: 50%;
@@ -585,7 +612,6 @@
             }
         }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
             .main-content {
                 flex-direction: column;
@@ -613,14 +639,12 @@
                 padding: 30px 20px;
             }
 
-            /* برای موبایل، متن‌ها کمی کوچک‌تر */
             .skill-list li {
                 font-size: 0.95rem;
                 padding: 8px 12px 8px 20px;
             }
         }
         
-        /* Animations */
         @keyframes slideInDown {
             from {
                 opacity: 0;
@@ -643,7 +667,6 @@
             }
         }
         
-        /* Skill Bars with Gradient */
         .skill-bar-container {
             margin-top: 20px;
         }
@@ -712,8 +735,9 @@
     
     <div class="resume-container">
         <div class="header">
-            <h1 class="name">امیرحسین پوستچی (ابراهیم)</h1>
-            <p class="title">طراحی و پیاده‌سازی سیستم‌های مبتنی بر میکروکنترلر و فعال در حوزه امبدد</p>
+            <!-- ✅ H1 حاوی نام کامل + عنوان شغلی برای سئو -->
+            <h1 class="name">امیرحسین پوستچی</h1>
+            <p class="title">مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار AVR | متخصص طراحی PCB و سیستم‌های هوشمند</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📱</span>
@@ -740,7 +764,7 @@
                            <li>Altium Design</li>
                            <li>Proteus</li>
                            <li>Multisim</li>
-                           <li>CodeVision</li> <!-- ✅ اصلاح شد -->
+                           <li>CodeVision</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -883,14 +907,36 @@
         </div>
         
         <div class="footer">
-            © 2024 ساخته شده توسط پیامبران 
+            © 2025 ساخته شده توسط پیامبران 
         </div>
     </div>
 
+    <!-- ✅ JSON-LD Structured Data برای Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "امیرحسین پوستچی",
+      "jobTitle": "مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار",
+      "url": "https://amirhosseinpoostchi.github.io/CV",
+      "sameAs": [
+        "https://github.com/amirhosseinpoostchi",
+        "https://linkedin.com/in/amirhosseinpoostchi"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "مشهد",
+        "addressCountry": "IR"
+      },
+      "email": "mailto:Poostchiahmad@gmail.com",
+      "telephone": "+98-993-979-5895",
+      "description": "متخصص طراحی سیستم‌های الکترونیکی مبتنی بر AVR، طراحی PCB و توسعه نرم‌افزارهای کاربردی.",
+      "skills": ["AVR", "Altium Designer", "CodeVision", "Proteus", "C", "IoT", "Robotic"]
+    }
+    </script>
+
     <script>
-        // Add animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            // Create more floating bubbles dynamically
             const body = document.body;
             for (let i = 0; i < 10; i++) {
                 const bubble = document.createElement('div');
@@ -904,7 +950,6 @@
                 body.appendChild(bubble);
             }
             
-            // Intersection Observer for animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -919,7 +964,6 @@
                 });
             }, observerOptions);
             
-            // Add fade-in animations to elements
             const animatedElements = document.querySelectorAll('.skill-category, .experience-item, .education-item, .project-item');
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
@@ -928,7 +972,6 @@
                 observer.observe(el);
             });
             
-            // Add hover glow effect to section titles
             const sectionTitles = document.querySelectorAll('.section-title');
             sectionTitles.forEach(title => {
                 title.addEventListener('mouseenter', function() {
@@ -942,5 +985,4 @@
         });
     </script>
 </body>
-
 </html>
