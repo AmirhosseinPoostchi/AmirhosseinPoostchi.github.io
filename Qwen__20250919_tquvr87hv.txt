@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://amirhosseinpoostchi.github.io/sitemap.xml
