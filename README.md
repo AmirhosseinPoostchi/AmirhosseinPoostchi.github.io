@@ -100,7 +100,6 @@
         <p><strong>برای دیدن رزومه کافیه <code>/cv</code> رو به ادامه لینک اضافه کنید.</strong></p>
         <a href="https://amirhosseinpoostchi.github.io/CV" target="_blank" class="btn">رفتن به رزومه</a>
         <div class="footer">
-            رزومه شما در یک تب جدید باز می‌شود.
         </div>
     </div>
 </body>
