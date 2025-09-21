@@ -15,13 +15,13 @@
     <meta name="keywords" content="امیرحسین پوستچی, مهندس الکترونیک, طراحی PCB, AVR, CodeVision, Proteus, Altium, رباتیک, اینترنت اشیا, رزومه, CV, مشهد">
 
     <!-- ✅ Canonical URL برای جلوگیری از محتوای تکراری -->
-    <link rel="canonical" href="https://amirhosseinpoostchi.github.io/CV" />
+    <link rel="canonical" href="https://amirhosseinpoostchi.github.io/CV  " />
 
     <!-- ✅ Open Graph - برای اشتراک‌گذاری در شبکه‌های اجتماعی -->
     <meta property="og:title" content="امیرحسین پوستچی | مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار">
     <meta property="og:description" content="رزومه رسمی امیرحسین پوستچی - متخصص AVR و طراحی سیستم‌های الکترونیکی هوشمند">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://amirhosseinpoostchi.github.io/CV">
+    <meta property="og:url" content="https://amirhosseinpoostchi.github.io/CV  ">
     <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=CV+AmirHossein+Poostchi">
     <meta property="profile:first_name" content="امیرحسین">
     <meta property="profile:last_name" content="پوستچی">
@@ -31,12 +31,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="امیرحسین پوستچی | مهندس طراحی الکترونیک">
     <meta name="twitter:description" content="رزومه حرفه‌ای با تمرکز بر AVR، IoT و طراحی PCB">
-    <meta name="twitter:image" content="https://via.placeholder.com/1200x630.png?text=CV+AmirHossein+Poostchi">
+    <meta name="twitter:image" content="  https://via.placeholder.com/1200x630.png?text=CV+AmirHossein+Poostchi">
 
-    <!-- ✅ Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- ✅ فونت و استایل‌ها -->
+    <!-- ✅ فونت و استایل‌ها (بدون تغییر) -->
     <style>
         :root {
             --primary-blue: #0a2463;
@@ -311,6 +308,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: cardFloat 4s ease-in-out infinite;
             opacity: 0;
             transform: translateY(30px);
         }
@@ -761,8 +759,7 @@
             top: 20px;
             left: 20px;
             z-index: 1000;
-            background: rgba(62, 146, 204, 0.8);
-            color: white;
+            background: rgba(255, 255, 255, 0.2);
             border: none;
             width: 50px;
             height: 50px;
@@ -771,1069 +768,564 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .theme-toggle:hover {
-            transform: scale(1.1) rotate(15deg);
-            background: rgba(62, 146, 204, 1);
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        /* Language Toggle */
-        .lang-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(62, 146, 204, 0.8);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
             transition: all 0.3s ease;
         }
-        
-        .lang-toggle:hover {
-            transform: scale(1.05);
-            background: rgba(62, 146, 204, 1);
-        }
 
-        /* Scroll Progress Bar */
-        #scroll-progress {
+        /* Scroll Progress Indicator */
+        .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary-blue), var(--light-blue));
-            z-index: 9999;
             width: 0%;
-            box-shadow: 0 0 10px rgba(62, 146, 204, 0.8);
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-blue), var(--light-blue));
+            z-index: 1000;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(62, 146, 204, 0.5);
         }
 
-        /* Parallax Background */
-        .parallax-bg {
-            will-change: transform;
-            position: relative;
-        }
-
-        /* Skill Circle */
-        .skill-circle-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin: 40px 0;
-        }
-        
-        .skill-circle {
-            --size: 120px;
-            --border: 8px;
-            --progress: 0;
-            width: var(--size);
-            height: var(--size);
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(62, 146, 204, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: conic-gradient(#3e92cc 0%, transparent 0%);
-            position: relative;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .skill-circle.animate {
-            background: conic-gradient(#3e92cc calc(var(--progress) * 1%), #0a2463 0%);
-            animation: fill 2s ease-out forwards;
-        }
-        
-        @keyframes fill {
-            from { background-size: 0% 0%; }
-            to { background-size: 100% 100%; }
-        }
-
-        /* Counter */
-        .counter {
-            font-weight: 700;
-            font-size: 2rem;
-            color: var(--light-blue);
-            display: inline-block;
-        }
-
-        /* Filter Buttons */
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0 40px;
-            justify-content: center;
-        }
-        
-        .filter-btn {
-            background: rgba(62, 146, 204, 0.2);
-            color: white;
-            border: 1px solid rgba(62, 146, 204, 0.3);
-            padding: 10px 25px;
-            border-radius: 30px;
-            cursor: pointer;
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: rgba(62, 146, 204, 0.8);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
         }
 
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            z-index: 999;
-            background: rgba(62, 146, 204, 0.8);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 5px;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: white;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 130px;
-                left: 0;
-                width: 100%;
-                background: var(--sidebar-bg);
-                flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 998;
-            }
-            
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-        }
-
-        /* Animation Classes */
-        .fade-in, .slide-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.animate-in, .slide-in.animate-in {
+        .back-to-top.show {
             opacity: 1;
             transform: translateY(0);
-        }
-        
-        .slide-in {
-            transform: translateX(-50px);
-        }
-        
-        .slide-in.animate-in {
-            transform: translateX(0);
+            pointer-events: auto;
         }
 
-        /* Chart Container */
-        .chart-container {
-            margin: 40px 0;
-            height: 300px;
-            width: 100%;
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: rgba(62, 146, 204, 1);
         }
 
-        /* Project Gallery */
-        .project-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            transition: all 0.3s ease;
         }
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
             top: 0;
-            right: 50%;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--secondary-blue), var(--light-blue));
-            transform: translateX(50%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.6s ease;
-        }
-        
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .timeline-content {
-            background: var(--section-bg);
-            padding: 25px;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(62, 146, 204, 0.2);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 50px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 50px;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary-blue);
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 0 4px rgba(62, 146, 204, 0.3);
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: 50%;
-            transform: translateX(50%);
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Lazy Loading */
-        img.lazy {
-            filter: blur(5px);
-            transition: filter 0.3s ease;
-        }
-        
-        img.lazy:not([src]) {
-            visibility: hidden;
-        }
-        
-        img.lazy[src] {
-            filter: blur(0);
-            visibility: visible;
-        }
-
-        /* Project Hover Overlay */
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            background: var(--section-bg);
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 36, 99, 0.9);
+            background: var(--bg-gradient-start);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-            text-align: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
-        
-        .project-card:hover .project-overlay {
-            opacity: 1;
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid var(--secondary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
-        
-        .project-card:hover {
-            transform: scale(1.02);
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: rgba(46, 204, 113, 0.9);
+        }
+
+        .toast.error {
+            background: rgba(231, 76, 60, 0.9);
+        }
+
+        .toast svg {
+            width: 20px;
+            height: 20px;
         }
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap">
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress"></div>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
 
     <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="darkModeToggle">🌙</button>
-
-    <!-- Language Toggle Button -->
-    <button class="lang-toggle" id="lang-toggle">EN/FA</button>
-
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
+    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
     </button>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="بازگشت به بالا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 4l-8 8h6v8h4v-8h6l-8-8z"/>
+        </svg>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+        </svg>
+        <span id="toastMessage">تم با موفقیت تغییر کرد</span>
+    </div>
+
+    <!-- Floating bubbles -->
+    <div class="bubble" style="width: 60px; height: 60px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="bubble" style="width: 40px; height: 40px; top: 60%; left: 20%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 80px; height: 80px; top: 30%; left: 80%; animation-delay: 4s;"></div>
+    <div class="bubble" style="width: 50px; height: 50px; top: 80%; left: 70%; animation-delay: 6s;"></div>
+    <div class="bubble" style="width: 70px; height: 70px; top: 10%; left: 50%; animation-delay: 8s;"></div>
+    
     <div class="resume-container">
         <div class="header">
-            <h1 class="name" data-i18n="name">امیرحسین پوستچی</h1>
-            <h2 class="title" data-i18n="title">مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار AVR</h2>
+            <!-- ✅ H1 حاوی نام کامل + عنوان شغلی برای سئو -->
+            <h1 class="name">امیرحسین پوستچی</h1>
+            <p class="title">مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار AVR | متخصص طراحی PCB و سیستم‌های هوشمند</p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span>📧</span>
-                    <span data-i18n="email">amir@example.com</span>
+                    <span>📱</span>
+                    <span>0993-979-5895</span>
                 </div>
                 <div class="contact-item">
-                    <span>📱</span>
-                    <span data-i18n="phone">+98 912 345 6789</span>
+                    <span>✉️</span>
+                    <span>Poostchiahmad@gmail.com</span>
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
-                    <span data-i18n="location">مشهد، ایران</span>
-                </div>
-                <div class="contact-item">
-                    <span>🔗</span>
-                    <span><a href="https://github.com/amirhosseinpoostchi" style="color: white; text-decoration: none;">GitHub</a></span>
+                    <span>مشهد ، ایران</span>
                 </div>
             </div>
         </div>
-
+        
         <div class="main-content">
             <div class="sidebar">
-                <div class="section-title" data-i18n="skills">مهارت‌ها</div>
-                
-                <!-- Skill Circles -->
-                <div class="skill-circle-container">
-                    <div class="skill-circle" data-value="95">AVR</div>
-                    <div class="skill-circle" data-value="90">PCB</div>
-                    <div class="skill-circle" data-value="85">IoT</div>
-                </div>
-
-                <!-- Skills List -->
+                <h2 class="section-title">مهارت‌های فنی</h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3 class="skill-title" data-i18n="hardware">سخت‌افزار</h3>
+                        <div class="skill-title">نرم‌افزارها</div>
                         <ul class="skill-list">
-                            <li>طراحی PCB با Altium</li>
-                            <li>شبیه‌سازی با Proteus</li>
-                            <li>برد مدار چاپی</li>
-                            <li>مدارهای دیجیتال و آنالوگ</li>
+                           <li>Altium Design</li>
+                           <li>Proteus</li>
+                           <li>Multisim</li>
+                           <li>CodeVision</li>
                         </ul>
                     </div>
-                    
                     <div class="skill-category">
-                        <h3 class="skill-title" data-i18n="software">نرم‌افزار</h3>
+                        <div class="skill-title">میکروکنترلرها</div>
                         <ul class="skill-list">
-                            <li>CodeVision</li>
-                            <li>C/C++</li>
-                            <li>Embedded C</li>
-                            <li>Git</li>
+                            <li>AVR</li>
+                            <li>ARM</li>
+                            <li>PIC</li>
                         </ul>
                     </div>
-                    
                     <div class="skill-category">
-                        <h3 class="skill-title" data-i18n="tools">ابزارها</h3>
+                        <div class="skill-title">طراحی PCB</div>
                         <ul class="skill-list">
-                            <li>Altium Designer</li>
-                            <li>Proteus</li>
-                            <li>Multisim</li>
-                            <li>Oscilloscope</li>
+                            <li>طراحی لایه‌های مختلف</li>
+                            <li>بهینه‌سازی مسیرها</li>
+                            <li>تولید فایل‌های خروجی</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">زبان‌های برنامه‌نویسی</div>
+                        <ul class="skill-list">
+                            <li>C</li>
+                            <li>C++</li>
+                            <li>Python</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="section-title" data-i18n="languages">زبان‌ها</div>
-                <div class="languages">
-                    <div class="language-item">فارسی (مادری)</div>
-                    <div class="language-item">انگلیسی (حرفه‌ای)</div>
-                </div>
-
-                <!-- Stats Counter -->
-                <div class="section-title" data-i18n="stats">آمار</div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <div>
-                        <span class="counter" data-target="3">0</span>
-                        <div data-i18n="years">سال تجربه</div>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <span class="counter" data-target="15">0</span>
-                        <div data-i18n="projects">پروژه کامل شده</div>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <span class="counter" data-target="5">0</span>
-                        <div data-i18n="clients">مشتری راضی</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main-section">
-                <!-- Chart -->
-                <div class="section-title" data-i18n="skillsChart">نمودار مهارت‌ها</div>
-                <div class="chart-container">
-                    <canvas id="skillsChart"></canvas>
-                </div>
-
-                <!-- Experience Timeline -->
-                <div class="section-title" data-i18n="experience">تجربه کاری</div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3 class="item-title">مهندس طراحی الکترونیک</h3>
-                            <div class="item-subtitle">شرکت فناوری های نوین</div>
-                            <div class="item-date">1403 - تاکنون</div>
-                            <div class="item-description">
-                                طراحی و پیاده‌سازی سیستم‌های مبتنی بر میکروکنترلر AVR، 
-                                طراحی PCB با استفاده از نرم‌افزار Altium، 
-                                شبیه‌سازی پروژه‌ها در محیط Proteus و Multisim.
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3 class="item-title">توسعه‌دهنده نرم‌افزارهای کاربردی</h3>
-                            <div class="item-subtitle">مرکز تحقیقات الکترونیک</div>
-                            <div class="item-date">1402 - 1403</div>
-                            <div class="item-description">
-                                توسعه نرم‌افزارهای کاربردی با استفاده از CodeVision، 
-                                بهینه‌سازی کدهای نوشته شده برای میکروکنترلرهای مختلف، 
-                                همکاری در پروژه‌های تحقیقاتی.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="section-title" data-i18n="education">تحصیلات</div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3 class="item-title">کارشناسی الکترونیک</h3>
-                            <div class="item-subtitle">دانشگاه منتظری</div>
-                            <div class="item-date">1404 - 1407</div>
-                            <div class="item-description">
-                                گرایش: الکترونیک عمومی
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3 class="item-title">رشته الکترونیک</h3>
-                            <div class="item-subtitle">هنرستان راه توسعه</div>
-                            <div class="item-date">1401 - 1404</div>
-                            <div class="item-description">
-                                معدل: 19.74
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projects with Filter -->
-                <div class="section-title" data-i18n="projects">پروژه‌های برجسته</div>
                 
-                <div class="filter-container">
-                    <button class="filter-btn active" data-filter="all" data-i18n="allProjects">همه</button>
-                    <button class="filter-btn" data-filter="robotics" data-i18n="robotics">رباتیک</button>
-                    <button class="filter-btn" data-filter="iot" data-i18n="iot">اینترنت اشیا</button>
-                    <button class="filter-btn" data-filter="embedded" data-i18n="embedded">سیستم‌های تعبیه‌شده</button>
-                </div>
-
-                <div class="project-gallery">
-                    <div class="project-card" data-category="embedded">
-                        <h3 class="project-title">سیستم کنترل هوشمند ساختمان</h3>
-                        <div class="project-overlay">
-                            <p>طراحی و پیاده‌سازی با AVR و CodeVision</p>
-                            <a href="#" style="color: #3e92cc; margin-top: 10px;">مشاهده جزئیات</a>
-                        </div>
+                <h2 class="section-title">سطح مهارت‌ها</h2>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-label">
+                        <span>Altium Designer</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="animation-delay: 0.2s;"></div>
                     </div>
                     
-                    <div class="project-card" data-category="robotics">
-                        <h3 class="project-title">ربات مسیریاب</h3>
-                        <div class="project-overlay">
-                            <p>تشخیص موانع و ارسال داده به سرور</p>
-                            <a href="#" style="color: #3e92cc; margin-top: 10px;">مشاهده جزئیات</a>
-                        </div>
+                    <div class="skill-bar-label">
+                        <span>میکروکنترلر AVR</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="animation-delay: 0.4s;"></div>
                     </div>
                     
-                    <div class="project-card" data-category="iot">
-                        <h3 class="project-title">سیستم اندازه‌گیری دما و رطوبت</h3>
-                        <div class="project-overlay">
-                            <p>نمایش روی LCD و اتصال به کامپیوتر</p>
-                            <a href="#" style="color: #3e92cc; margin-top: 10px;">مشاهده جزئیات</a>
-                        </div>
+                    <div class="skill-bar-label">
+                        <span>CodeVision</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="animation-delay: 0.6s;"></div>
+                    </div>
+                    
+                    <div class="skill-bar-label">
+                        <span>Proteus</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="animation-delay: 0.8s;"></div>
                     </div>
                 </div>
-
-                <!-- Recent Projects from JSON -->
-                <div class="section-title" data-i18n="recentProjects">آخرین پروژه‌ها</div>
-                <div id="recent-projects">
-                    <!-- Projects will be loaded here dynamically -->
-                    <p style="text-align: center; color: var(--light-blue);">در حال بارگذاری...</p>
+                
+                <h2 class="section-title">زبان‌ها</h2>
+                <div class="languages">
+                    <div class="language-item">فارسی (زبان مادری)</div>
+                    <div class="language-item">انگلیسی (معمولی)</div>
+                </div>
+                
+                <h2 class="section-title">علاقه‌مندی‌ها</h2>
+                <ul class="skill-list">
+                    <li>رباتیک</li>
+                    <li>اینترنت اشیا</li>
+                    <li>هوش مصنوعی</li>
+                    <li>پروژه‌های DIY</li>
+                </ul>
+            </div>
+            
+            <div class="main-section">
+                <h2 class="section-title">تجربه کاری</h2>
+                <div class="experience-item">
+                    <div class="item-title">مهندس طراحی الکترونیک</div>
+                    <div class="item-subtitle">شرکت فناوری های نوین</div>
+                    <div class="item-date">1403 - تاکنون</div>
+                    <div class="item-description">
+                        طراحی و پیاده‌سازی سیستم‌های مبتنی بر میکروکنترلر AVR، 
+                        طراحی PCB با استفاده از نرم‌افزار Altium، 
+                        شبیه‌سازی پروژه‌ها در محیط Proteus و Multisim.
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-title">توسعه‌دهنده نرم‌افزارهای کاربردی</div>
+                    <div class="item-subtitle">مرکز تحقیقات الکترونیک</div>
+                    <div class="item-date">1403 - 1402</div>
+                    <div class="item-description">
+                        توسعه نرم‌افزارهای کاربردی با استفاده از CodeVision، 
+                        بهینه‌سازی کدهای نوشته شده برای میکروکنترلرهای مختلف، 
+                        همکاری در پروژه‌های تحقیقاتی.
+                    </div>
+                </div>
+                
+                <h2 class="section-title">تحصیلات</h2>
+                <div class="education-item">
+                    <div class="item-title">کارشناسی الکترونیک</div>
+                    <div class="item-subtitle">دانشگاه منتظری</div>
+                    <div class="item-date">1407 - 1404</div>
+                    <div class="item-description">
+                        گرایش: الکترونیک عمومی
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-title">رشته الکترونیک</div>
+                    <div class="item-subtitle">هنرستان راه توسعه</div>
+                    <div class="item-date">1404 - 1401</div>
+                    <div class="item-description">
+                        معدل: 19.74
+                    </div>
+                </div>
+                
+                <h2 class="section-title">پروژه‌های برجسته</h2>
+                <div class="projects">
+                    <div class="project-item">
+                        <div class="project-title">سیستم کنترل هوشمند ساختمان</div>
+                        <p>طراحی و پیاده‌سازی سیستم کنترل هوشمند ساختمان با استفاده از میکروکنترلر AVR و نرم‌افزار CodeVision.</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-title">ربات مسیریاب</div>
+                        <p>طراحی ربات مسیریاب با قابلیت تشخیص موانع و ارسال داده به سرور از طریق اینترنت اشیا.</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-title">سیستم اندازه‌گیری دما و رطوبت</div>
+                        <p>پیاده‌سازی سیستم اندازه‌گیری دما و رطوبت با نمایش روی LCD و امکان اتصال به کامپیوتر.</p>
+                    </div>
                 </div>
             </div>
         </div>
-
+        
         <div class="footer">
-            <p data-i18n="footer">© 2025 امیرحسین پوستچی - تمامی حقوق محفوظ است</p>
+         © 2025 ساخت شده توسط امیرحسین پوستچی  
+               
         </div>
     </div>
 
-    <!-- JavaScript Modules -->
-    <script>
-        // ======================
-        // 1. Dark/Light Mode Toggle
-        // ======================
-        function initDarkMode() {
-            const toggleBtn = document.getElementById('darkModeToggle');
-            const body = document.body;
-            const savedMode = localStorage.getItem('darkMode') === 'enabled';
+    <!-- ✅ JSON-LD Structured Data برای Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "امیرحسین پوستچی",
+      "jobTitle": "مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار",
+      "url": "https://amirhosseinpoostchi.github.io/CV",
+      "sameAs": [
+        "https://github.com/amirhosseinpoostchi",
+        "https://linkedin.com/in/amirhosseinpoostchi"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "مشهد",
+        "addressCountry": "IR"
+      },
+      "email": "mailto:Poostchiahmad@gmail.com",
+      "telephone": "+98-993-979-5895",
+      "description": "متخصص طراحی سیستم‌های الکترونیکی مبتنی بر AVR، طراحی PCB و توسعه نرم‌افزارهای کاربردی.",
+      "skills": ["AVR", "Altium Designer", "CodeVision", "Proteus", "C", "IoT", "Robotic"]
+    }
+    </script>
 
-            if (savedMode) {
-                body.classList.add('dark-theme');
-                toggleBtn.textContent = '☀️';
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading overlay
+            setTimeout(() => {
+                document.querySelector('.loading-overlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.loading-overlay').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            // Initialize theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.getElementById('themeIcon').innerHTML = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/>';
             }
 
-            toggleBtn?.addEventListener('click', () => {
-                body.classList.toggle('dark-theme');
-                const isDark = body.classList.contains('dark-theme');
-                localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-                toggleBtn.textContent = isDark ? '☀️' : '🌙';
-            });
-        }
-
-        // ======================
-        // 2. Parallax Effect
-        // ======================
-        function initParallax() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.parallax-bg');
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
                 
-                parallaxElements.forEach(el => {
-                    const speed = parseFloat(el.dataset.speed) || 0.5;
-                    el.style.transform = `translateY(${scrolled * speed}px)`;
+                if (document.body.classList.contains('dark-theme')) {
+                    themeIcon.innerHTML = '<path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"/>';
+                    localStorage.setItem('theme', 'dark');
+                    showToast('تم تاریک فعال شد', 'success');
+                } else {
+                    themeIcon.innerHTML = '<path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>';
+                    localStorage.setItem('theme', 'light');
+                    showToast('تم روشن فعال شد', 'success');
+                }
+            });
+
+            // Scroll progress indicator
+            const scrollProgress = document.querySelector('.scroll-progress');
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollProgress.style.width = scrollPercent + '%';
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
-        }
 
-        // ======================
-        // 3. Scroll Animations (Intersection Observer)
-        // ======================
-        function initScrollAnimations() {
+            // Create floating bubbles
+            const body = document.body;
+            for (let i = 0; i < 10; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDelay = `${Math.random() * 20}s`;
+                bubble.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                body.appendChild(bubble);
+            }
+            
+            // Intersection Observer for animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
-
+            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                        if (entry.target.classList.contains('timeline-item')) {
-                            entry.target.classList.add('visible');
+                        entry.target.style.opacity = '1';
+                        if (entry.target.classList.contains('skill-category')) {
+                            entry.target.style.transform = 'translateY(0)';
+                        } else {
+                            entry.target.style.transform = 'translateX(0)';
                         }
-                        // Only observe once
-                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
-
-            // Observe all elements with animation classes
-            document.querySelectorAll('.fade-in, .slide-in, .timeline-item, .skill-category, .experience-item, .education-item, .project-item').forEach(el => {
+            
+            const animatedElements = document.querySelectorAll('.skill-category, .experience-item, .education-item, .project-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('skill-category')) {
+                    el.style.transform = 'translateY(30px)';
+                } else {
+                    el.style.transform = 'translateX(-50px)';
+                }
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(el);
             });
-        }
-
-        // ======================
-        // 4. Project Gallery Filter
-        // ======================
-        function initProjectGallery() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projects = document.querySelectorAll('.project-card');
-
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.dataset.filter;
-
-                    // Update active button
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    // Filter projects
-                    projects.forEach(project => {
-                        if (filter === 'all' || project.dataset.category === filter) {
-                            project.style.display = 'block';
-                            setTimeout(() => {
-                                project.style.opacity = '1';
-                                project.style.transform = 'translateY(0)';
-                            }, 100);
-                        } else {
-                            project.style.opacity = '0';
-                            project.style.transform = 'translateY(30px)';
-                            setTimeout(() => {
-                                project.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+            
+            // Hover effects for section titles
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.addEventListener('mouseenter', function() {
+                    this.style.textShadow = '0 0 20px rgba(62, 146, 204, 0.8), 0 0 40px rgba(32, 83, 117, 0.6)';
                 });
-            });
-        }
-
-        // ======================
-        // 5. Skill Circles Animation
-        // ======================
-        function initSkillsCircle() {
-            const skillCircles = document.querySelectorAll('.skill-circle');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const circle = entry.target;
-                        const value = circle.dataset.value;
-                        circle.style.setProperty('--progress', value);
-                        circle.classList.add('animate');
-                        observer.unobserve(circle);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            skillCircles.forEach(circle => observer.observe(circle));
-        }
-
-        // ======================
-        // 6. Timeline Animation
-        // ======================
-        // Already handled in Scroll Animations (Section 3)
-
-        // ======================
-        // 7. Project Hover Effect
-        // ======================
-        // Handled with CSS only
-
-        // ======================
-        // 8. Mobile Menu Toggle
-        // ======================
-        function initMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.querySelector('.nav-menu');
-
-            menuToggle?.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navMenu?.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.menu-toggle') && !e.target.closest('.nav-menu') && navMenu?.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    menuToggle?.classList.remove('active');
-                }
-            });
-        }
-
-        // ======================
-        // 9. Animated Counter
-        // ======================
-        function initCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const duration = 2000; // ms
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        const target = parseInt(counter.dataset.target);
-                        const step = target / (duration / 16); // ~60fps
-                        let current = 0;
-
-                        const timer = setInterval(() => {
-                            current += step;
-                            if (current >= target) {
-                                current = target;
-                                clearInterval(timer);
-                            }
-                            counter.textContent = Math.floor(current);
-                        }, 16);
-
-                        observer.unobserve(counter);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            counters.forEach(counter => observer.observe(counter));
-        }
-
-        // ======================
-        // 10. Scroll Progress Bar
-        // ======================
-        function initScrollProgress() {
-            const progress = document.getElementById('scroll-progress');
-
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset;
-                const docHeight = document.body.scrollHeight - window.innerHeight;
-                const scrollPercent = (scrollTop / docHeight) * 100;
-                progress.style.width = `${scrollPercent}%`;
-            });
-        }
-
-        // ======================
-        // 11. Multi-language Support
-        // ======================
-        const translations = {
-            fa: {
-                "name": "امیرحسین پوستچی",
-                "title": "مهندس طراحی الکترونیک و توسعه‌دهنده نرم‌افزار AVR",
-                "email": "amir@example.com",
-                "phone": "+98 912 345 6789",
-                "location": "مشهد، ایران",
-                "skills": "مهارت‌ها",
-                "hardware": "سخت‌افزار",
-                "software": "نرم‌افزار",
-                "tools": "ابزارها",
-                "languages": "زبان‌ها",
-                "stats": "آمار",
-                "years": "سال تجربه",
-                "projects": "پروژه کامل شده",
-                "clients": "مشتری راضی",
-                "skillsChart": "نمودار مهارت‌ها",
-                "experience": "تجربه کاری",
-                "education": "تحصیلات",
-                "projects": "پروژه‌ها",
-                "allProjects": "همه",
-                "robotics": "رباتیک",
-                "iot": "اینترنت اشیا",
-                "embedded": "سیستم‌های تعبیه‌شده",
-                "recentProjects": "آخرین پروژه‌ها",
-                "footer": "© 2025 امیرحسین پوستچی - تمامی حقوق محفوظ است"
-            },
-            en: {
-                "name": "AmirHossein Poostchi",
-                "title": "Electronics Design Engineer & AVR Software Developer",
-                "email": "amir@example.com",
-                "phone": "+98 912 345 6789",
-                "location": "Mashhad, Iran",
-                "skills": "Skills",
-                "hardware": "Hardware",
-                "software": "Software",
-                "tools": "Tools",
-                "languages": "Languages",
-                "stats": "Statistics",
-                "years": "Years of Experience",
-                "projects": "Completed Projects",
-                "clients": "Satisfied Clients",
-                "skillsChart": "Skills Chart",
-                "experience": "Work Experience",
-                "education": "Education",
-                "projects": "Projects",
-                "allProjects": "All",
-                "robotics": "Robotics",
-                "iot": "Internet of Things",
-                "embedded": "Embedded Systems",
-                "recentProjects": "Recent Projects",
-                "footer": "© 2025 AmirHossein Poostchi - All Rights Reserved"
-            }
-        };
-
-        function initI18n() {
-            const langToggle = document.getElementById('lang-toggle');
-            const savedLang = localStorage.getItem('language') || 'fa';
-            setLanguage(savedLang);
-
-            langToggle?.addEventListener('click', () => {
-                const currentLang = document.documentElement.lang;
-                const newLang = currentLang === 'fa' ? 'en' : 'fa';
-                setLanguage(newLang);
-                localStorage.setItem('language', newLang);
-            });
-        }
-
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-        }
-
-        // ======================
-        // 12. Lazy Loading Images
-        // ======================
-        function initLazyLoad() {
-            const lazyImages = document.querySelectorAll('img[data-src]');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        observer.unobserve(img);
-                    }
+                
+                title.addEventListener('mouseleave', function() {
+                    this.style.textShadow = '0 2px 4px rgba(0, 0, 0, 0.3)';
                 });
             });
 
-            lazyImages.forEach(img => observer.observe(img));
-        }
-
-        // ======================
-        // 13. Load Recent Projects from JSON
-        // ======================
-        async function loadRecentProjects() {
-            try {
-                // Create a sample projects.json structure for demo
-                const sampleProjects = [
-                    {
-                        "title": "هوش مصنوعی برای تشخیص عیوب PCB",
-                        "description": "پیاده‌سازی الگوریتم یادگیری ماشین برای تشخیص عیوب در برد‌های الکترونیکی",
-                        "category": "ai",
-                        "date": "1404",
-                        "link": "#"
-                    },
-                    {
-                        "title": "سیستم کنترل دستگاه‌های پزشکی",
-                        "description": "طراحی سیستم کنترلی برای دستگاه‌های پزشکی با قابلیت مانیتورینگ از راه دور",
-                        "category": "medical",
-                        "date": "1403",
-                        "link": "#"
-                    },
-                    {
-                        "title": "ربات جمع‌آوری زباله هوشمند",
-                        "description": "طراحی رباتی که به صورت خودکار زباله‌ها را تشخیص و جمع‌آوری می‌کند",
-                        "category": "robotics",
-                        "date": "1404",
-                        "link": "#"
-                    }
-                ];
-
-                const container = document.getElementById('recent-projects');
-                if (!container) return;
-
-                container.innerHTML = ''; // Clear loading message
-
-                sampleProjects.forEach(project => {
-                    const div = document.createElement('div');
-                    div.className = 'project-card slide-in';
-                    div.style.marginBottom = '20px';
-                    div.innerHTML = `
-                        <h3 class="project-title">${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div style="display: flex; justify-content: space-between; margin-top: 15px;">
-                            <span style="background: rgba(62, 146, 204, 0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">${project.date}</span>
-                            <a href="${project.link}" style="color: #3e92cc; text-decoration: none;">مشاهده جزئیات</a>
-                        </div>
-                        <div class="project-overlay">
-                            <p>${project.description}</p>
-                            <a href="${project.link}" style="color: #3e92cc; margin-top: 10px;">View Details</a>
-                        </div>
-                    `;
-                    container.appendChild(div);
-                });
-
-                // Trigger animations for newly added elements
+            // Toast notification function
+            function showToast(message, type = 'success') {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toastMessage');
+                
+                toastMessage.textContent = message;
+                toast.className = 'toast ' + type;
+                toast.classList.add('show');
+                
                 setTimeout(() => {
-                    document.querySelectorAll('.slide-in').forEach(el => {
-                        el.classList.add('animate-in');
-                    });
-                }, 100);
-
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                const container = document.getElementById('recent-projects');
-                if (container) {
-                    container.innerHTML = '<p style="color: red; text-align: center;">خطا در بارگذاری پروژه‌ها</p>';
-                }
+                    toast.classList.remove('show');
+                }, 3000);
             }
-        }
 
-        // ======================
-        // 14. Interactive Chart with Chart.js
-        // ======================
-        function initCharts() {
-            const ctx = document.getElementById('skillsChart');
-            if (!ctx) return;
-
-            new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['AVR', 'PCB Design', 'IoT', 'CodeVision', 'Proteus', 'Altium'],
-                    datasets: [{
-                        label: 'سطح مهارت',
-                        data: [95, 90, 85, 88, 92, 87],
-                        backgroundColor: 'rgba(62, 146, 204, 0.2)',
-                        borderColor: '#3e92cc',
-                        pointBackgroundColor: '#3e92cc',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: '#3e92cc',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: 'rgba(255,255,255,0.2)' },
-                            grid: { color: 'rgba(255,255,255,0.1)' },
-                            pointLabels: { 
-                                color: '#fff',
-                                font: {
-                                    size: 14
-                                }
-                            },
-                            ticks: { 
-                                color: '#ccc',
-                                backdropColor: 'transparent'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: { 
-                            labels: { 
-                                color: '#fff',
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(10, 36, 99, 0.8)',
-                            titleColor: '#fff',
-                            bodyColor: '#fff',
-                            borderColor: '#3e92cc',
-                            borderWidth: 1
-                        }
-                    }
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl + T for theme toggle
+                if (e.ctrlKey && e.key === 't') {
+                    e.preventDefault();
+                    themeToggle.click();
+                }
+                // Ctrl + ↑ for back to top
+                if (e.ctrlKey && e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    backToTop.click();
                 }
             });
-        }
 
-        // ======================
-        // 15. Performance Optimization
-        // ======================
-        // - All scripts are at the bottom and run after DOM is loaded
-        // - Using IntersectionObserver for lazy loading
-        // - CSS animations instead of JS where possible
-        // - Minimal DOM manipulation
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
 
-        // Initialize all modules when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            initDarkMode();
-            initParallax();
-            initScrollAnimations();
-            initProjectGallery();
-            initSkillsCircle();
-            initMobileMenu();
-            initCounters();
-            initScrollProgress();
-            initI18n();
-            initLazyLoad();
-            loadRecentProjects();
-            initCharts();
-            
-            // Create floating bubbles for decoration
-            createBubbles();
+            // Add animation to skill bars when they come into view
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillBarObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.style.animationDelay || '0s';
+                        setTimeout(() => {
+                            entry.target.style.transform = 'scaleX(1)';
+                        }, parseFloat(delay) * 1000);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => {
+                skillBarObserver.observe(bar);
+            });
         });
-
-        // Helper function to create decorative bubbles
-        function createBubbles() {
-            const body = document.body;
-            const bubbleCount = 15;
-            
-            for (let i = 0; i < bubbleCount; i++) {
-                const bubble = document.createElement('div');
-                bubble.classList.add('bubble');
-                
-                // Random size between 20px and 80px
-                const size = Math.random() * 60 + 20;
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                
-                // Random position
-                bubble.style.right = `${Math.random() * 100}%`;
-                bubble.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation duration
-                const duration = Math.random() * 20 + 10;
-                bubble.style.animationDuration = `${duration}s`;
-                
-                // Random delay
-                const delay = Math.random() * 10;
-                bubble.style.animationDelay = `${delay}s`;
-                
-                body.appendChild(bubble);
-            }
-        }
     </script>
 </body>
 </html>
